@@ -5,18 +5,28 @@
 <title>Blabla</title>
 <link rel='stylesheet' href="css/main.css">
 <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+<script src="lib/angular.min.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
 </head>
-<body>
+<body data-ng-app="myApp" data-ng-controller="indexController">
 	<div id="head">
 		<ul>
-			<li>Home</li><li>Nav</li><li>Ref</li>
+			<li ng-repeat="menu in menuNav">{{menu}}</li>
 		</ul>
 	</div>
 	<div id="wrap">
 		<div id="left">
 			<div id="bo">Menu</div>
-			<div id="menu"></div>
+			<div id="menu">
+				<ul>
+					<li ng-repeat="sideNav in sideMenu">{{sideNav.name}}
+						<ul>
+							<li ng-repeat="child in sideMenu.children">{{child}}</li>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
 		</div>
 		<div id="col">
 		hiiiiiiii
